@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Trend&Inform</title>
+	 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+<style type="text/css">
+	
+
+
+body{
+	
+
+	background-image: url(../static/images/blurimg.jpg);
+    background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 1920px;
+	height: 1080px;
+}
+.positive{
+
+	background-color: green;
+	width: 80px;
+	height: 30px;
+	color: white;
+	text-align: center;
+
+
+}
+.negative{
+
+	background-color: red;
+	width: 80px;
+	height: 30px;
+	color: white;
+	text-align: center;
+
+
+}
+.neutral{
+
+	background-color: #851de0;
+	width: 80px;
+	height: 30px;
+	color: white;
+	text-align: center;
+
+
+}
+</style>
+</head>
+<body>
+
+<div class="container" align="center">
+	<br>
+	<div class="jumbotron" style="border-radius: 40px;width: 500px;height: 200px;font-size: 40px">#TREND&INFORM </div>
+<br>
+
+<ul class="list-group" style="width: 1100px;height: 500px;overflow-y:scroll;background-color: white;margin-right: 700px;opacity: 0.8;font-size: 20px;text-align: left">
+{% for value in posts %}
+<li class="list-group-item" ><label class="{{value[1]}}">{{value[1]}}</label> <label>{{value[0]}}</label></li>
+{% endfor %}
+</ul>
+<br>
+
+<a href="./stats" class="btn btn-primary" a href="/stats" style="width:200px;height: 60px;font-size:30px;text-align: center;align-items: center;" align="center">
+	Statistics
+</a>
+
+
+</div>
+</body>
+</html>

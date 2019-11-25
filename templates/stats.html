@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Trend&Inform</title>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<style type="text/css">
+  
+body{
+  
+
+  background-image: url(../static/images/blurimg.jpg);
+    background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 1920px;
+  height: 1080px;
+}
+</style>
+</head>
+<body>
+  <br>
+<div class="jumbotron" style="width: 500px;height:220px;font-size: 80px;margin-left: 35%;text-align: center;border-radius: 40px;background-color: black;color: white;opacity: 0.6" align="center">Statistics</div>
+<div class="container" align="center" style="margin-right: 540px;border-radius: 40px">
+<div class="row" align="center" style="width: 1920px;height: 700px;border-radius: 40px">
+<div class="column" id="piechart" style="border-radius: 40px"></div>
+<div class="column "id="barchart" style="border-radius: 40px"></div>
+</div>
+</div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+var pcount={{ chartcount[0] }};
+var ncount={{ chartcount[1] }};
+var nncount={{ chartcount[2] }};
+
+// Draw the chart and set the chart values
+function drawChart() {
+  
+  var data = google.visualization.arrayToDataTable([
+  ['Sentiment', 'Amount'],
+  ['Positive', pcount ],
+  ['Negative', ncount],
+  ['Neutral', nncount ]
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Sentiment Analysis', 'width':700, 'height':600, 'pieHole':0.4};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+  var options = {'title':'Sentiment Analysis', 'width':700, 'height':600};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.BarChart(document.getElementById('barchart'));
+  chart.draw(data, options);
+}
+</script>
+
+</body>
+</html>
